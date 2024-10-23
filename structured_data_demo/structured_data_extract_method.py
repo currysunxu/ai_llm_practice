@@ -67,6 +67,7 @@ def streaming_data_extract():
         print(text)
 
     # 问题 1: 为什么要一个case，缺返回 一大堆无效测试用例
+    # 1019回答了: streaming output 原理 是叠加的方式
 
 # assistant: {"key":null,"summary":null,"description":null,"project":null,"status":null,"issue_type":null,"labels":null,"components":null,"priority":null,"assignee":null,"reporter":null,"created":null,"updated":null,"steps":null}
 # assistant: {"key":null,"summary":null,"description":null,"project":null,"status":null,"issue_type":null,"labels":null,"components":null,"priority":null,"assignee":null,"reporter":null,"created":null,"updated":null,"steps":null}
@@ -98,11 +99,11 @@ def streaming_data_extract():
 # streaming_data_extract()
 
 # pre-condition: pip install llama-index-program-openai,python3.12 instead of 3.11
-def openai_pydantic_api_data_extract():
+def openai_pydantic_api_data_extract(prompt_template_str):
 
-    prompt_template_str = """
-    design two test {name} cases
-    """
+    # prompt_template_str = """
+    # design two test {name} cases
+    # """
 
     program = OpenAIPydanticProgram.from_defaults(
         output_cls=TestCase,prompt_template_str=prompt_template_str,verbose=True
